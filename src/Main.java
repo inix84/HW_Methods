@@ -30,21 +30,18 @@ public class Main {
         System.out.println();
     }
 
-    public static void calculationDeliveryDistance(int deliveryDistance2) {
+    public static int calculationDeliveryDistance(int deliveryDistance2) {
+        int DeliveryTime;
         if (deliveryDistance2 < 20) {
-            System.out.println("Дистанция от офиса до адреса клиента составляет: " + deliveryDistance2 +
-                    " км. Потребуется 1 день");
+            DeliveryTime = 1;
         } else if (deliveryDistance2 >= 20 && deliveryDistance2 < 60) {
-            System.out.println("Дистанция от офиса до адреса клиента составляет: " + deliveryDistance2 +
-                    " км. Потребуется 2 дня");
+            DeliveryTime = 2;
         } else if (deliveryDistance2 >= 60 && deliveryDistance2 < 100) {
-            System.out.println("Дистанция от офиса до адреса клиента составляет: " + deliveryDistance2 +
-                    " км. Потребуется 3 дня");
+            DeliveryTime = 3;
         } else {
-            System.out.println("Дистанция от офиса до адреса клиента составляет: " + deliveryDistance2 +
-                    " км. Доставки нет");
+            DeliveryTime = 0;
         }
-        System.out.println();
+        return DeliveryTime;
     }
 
     public static void main(String[] args) {
@@ -55,9 +52,10 @@ public class Main {
         int clientOS = 1; //0 — iOS, 1 — Android
         int clientDeviceYear = LocalDate.now().getYear(); // год выпуска
         ResolvesInstallingOS(clientOS, clientDeviceYear);
-        System.out.println("Задача 3. Про доставку банковских карт:");
+        System.out.println();
+        System.out.println("Задача 3. Про доставку банковских карт (В случае значения 0 дней - ДОСТАВКИ НЕТ):");
         int deliveryDistance = 195; // дистанция до клиента
-        calculationDeliveryDistance(deliveryDistance);
+        System.out.println("Потребуется дней: " + calculationDeliveryDistance(deliveryDistance));
     }
 
 }
